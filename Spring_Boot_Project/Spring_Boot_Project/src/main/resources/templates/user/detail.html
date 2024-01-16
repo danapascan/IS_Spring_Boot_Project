@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<div class="header" th:replace="~{fragments :: header}"></div>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <td th:text="${book.id}"></td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td th:text="${book.title}"></td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td th:text="${book.bookDetails.author}"></td>
+    </tr>
+    <tr>
+        <th>Published Date</th>
+        <td th:text="${book.bookDetails.publishedDate}"></td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td th:text="${book.bookDetails.price}"></td>
+    </tr>
+    <tr>
+        <th>Stock</th>
+        <td th:text="${book.bookDetails.stock}"></td>
+    </tr>
+</table>
+<a th:href="'/user/edit?bookId=' + ${book.id}">Edit Book</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<div class="header" th:replace="~{fragments :: header}"></div>
+<form method="post" action="/user/edit" th:action="@{'/user/edit?bookId=' + ${bookId}}">
+    <div class="form-group">
+        <label>Title
+            <input th:field="${book.title}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.title}"></p>
+    </div>
+    <div class="form-group">
+        <label>Author
+            <input th:field="${book.bookDetails.author}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.bookDetails.author}"></p>
+    </div>
+    <div class="form-group">
+        <label>Published Date
+            <input th:field="${book.bookDetails.publishedDate}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.bookDetails.publishedDate}"></p>
+    </div>
+    <div class="form-group">
+        <label>Price
+            <input th:field="${book.bookDetails.price}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.bookDetails.price}"></p>
+    </div>
+    <div class="form-group">
+        <label>Stock
+            <input th:field="${book.bookDetails.stock}" class="form-control">
+        </label>
+        <p class="error" th:errors="${book.bookDetails.stock}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit book" class="btn btn-success">
+    </div>
+</form>
+</body>
+</html>

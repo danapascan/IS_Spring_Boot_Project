@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<div class="header" th:replace="~{fragments :: header}"></div>
+<form method="post">
+    <th:block th:each ="user : ${users}">
+        <div class="form-group">
+            <label>
+                <span th:text="${user.username}"></span>
+                <input type="checkbox" name="userNames" th:value="${user.username}" class="form-check-input">
+            </label>
+        </div>
+    </th:block>
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<div class="header" th:replace="~{fragments :: header}"></div>
+<p th:unless="${books} and ${books.size()}">No books!</p>
+<table class="table table-striped">
+    <tr th:each="book : ${books}">
+        <td ><a th:href="'/user/detail?bookId=' + ${book.id}" th:text="${book.title}"></a></td>
+    </tr>
+</table>
+</body>
+</html>

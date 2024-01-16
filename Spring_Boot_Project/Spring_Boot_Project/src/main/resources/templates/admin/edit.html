@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<div class="header" th:replace="~{fragments :: header}"></div>
+<form method="post" action="/admin/edit" th:action="@{'/admin/edit?userName=' + ${userName}}">
+    <div class="form-group">
+        <label>Username
+            <input th:field="${user.username}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>First Name
+            <input th:field="${user.firstName}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Last Name
+            <input th:field="${user.lastName}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Role
+            <select th:field="${user.roles}">
+                <option th:each="role:${roles}"
+                        th:value="${role.id}"
+                        th:text="${role.role}">
+                </option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit user" class="btn btn-success">
+    </div>
+</form>
+</body>
+</html>
